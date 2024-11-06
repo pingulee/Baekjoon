@@ -3,10 +3,12 @@
 
 const int MAX = 8;
 
-void print_array(int *score) {
-    for (int i = 0; i < MAX; i++) {
-        printf("%d\n", score[i]);
+int sum_score(int *score) {
+    int sum = 0;
+    for (int i = MAX - 1; i >= 3; i--) {
+        sum += score[i];
     }
+    return sum;
 }
 
 int main(void) {
@@ -31,8 +33,7 @@ int main(void) {
         }
     }
 
-    printf("출력\n");
-    print_array(score);
+    printf("%d\n", sum_score(score));
 
     free(score);
     free(index);
